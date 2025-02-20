@@ -1,21 +1,23 @@
 // src/components/Navbar.tsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+
   return (
-    <nav className="bg-white text-black sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <a href="#" className="text-2xl font-bold">
+    <nav className="bg-white text-black fixed top-0 left-0 w-full z-50 shadow-md h-16">
+      <div className="container mx-auto max-w-screen-xl flex justify-between items-center p-4">
+        <Link to="/" className="text-2xl font-bold">
           E-Shop
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4">
-          <a href="#" className="hover:text-gray-500">
+          <Link to="/" className="hover:text-gray-500">
             หน้าแรก
-          </a>
+          </Link>
           <a href="#" className="hover:text-gray-500">
             คอมพิวเตอร์เซต
           </a>
@@ -25,9 +27,9 @@ const Navbar = () => {
           <a href="#" className="hover:text-gray-500">
             บทความ
           </a>
-          <a href="#" className="hover:text-gray-500">
+          <Link to="/contact" className="hover:text-gray-500">
             ติดต่อเรา
-          </a>
+          </Link>
           <a href="#" className="hover:text-gray-500">
             เกี่ยวกับเรา
           </a>
@@ -45,12 +47,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-blue-500 p-2">
-          <a href="#" className="block py-1 hover:text-gray-500">
-            Home
-          </a>
-          <a href="#" className="block py-1 hover:text-gray-500">
+          <Link to="/" className="block py-1 hover:text-gray-500">
             หน้าแรก
-          </a>
+          </Link>
           <a href="#" className="block py-1 hover:text-gray-500">
             คอมพิวเตอร์เซต
           </a>
@@ -60,9 +59,9 @@ const Navbar = () => {
           <a href="#" className="block py-1 hover:text-gray-500">
             บทความ
           </a>
-          <a href="#" className="block py-1 hover:text-gray-500">
+          <Link to="/contact" className="block py-1 hover:text-gray-500">
             ติดต่อเรา
-          </a>
+          </Link>
           <a href="#" className="block py-1 hover:text-gray-500">
             เกี่ยวกับเรา
           </a>
@@ -73,3 +72,20 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// const [isVisible, setIsVisible] = useState(true);
+// let lastScrollY = window.scrollY;
+
+// const handleScroll = () => {
+//   if (window.scrollY > lastScrollY) {
+//     setIsVisible(false); // Scroll ลง -> ซ่อน Navbar
+//   } else {
+//     setIsVisible(true); // Scroll ขึ้น -> แสดง Navbar
+//   }
+//   lastScrollY = window.scrollY;
+// };
+
+// useEffect(() => {
+//   window.addEventListener("scroll", handleScroll);
+//   return () => window.removeEventListener("scroll", handleScroll);
+// }, []);
