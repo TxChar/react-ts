@@ -51,4 +51,3 @@ export default tseslint.config({
   },
 })
 ```
->>>>>>> fc734f2 (chore: 🤖 Initialize React's project)
