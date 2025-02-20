@@ -1,10 +1,19 @@
 // src/components/Navbar.tsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation(); // ใช้ตรวจสอบเส้นทางปัจจุบัน
 
+    // ฟังก์ชันตรวจสอบเส้นทางเพื่อเปลี่ยนสี
+  const isActive = (path: string) =>
+    location.pathname === path ? "text-red-500" : "text-black";
+
+    // ฟังก์ชันเมื่อคลิกลิงก์ -> ปิดเมนู
+  const handleLinkClick = () => {
+      setIsOpen(false);
+    };
 
   return (
     <nav className="bg-white text-black fixed top-0 left-0 w-full z-50 shadow-md h-16">
@@ -15,29 +24,29 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4">
-          <Link to="/" className="hover:text-gray-500">
+        <Link to="/" className={`hover:text-red-500 ${isActive("/")}`}>
             หน้าแรก
           </Link>
-          <a href="#" className="hover:text-gray-500">
+          <a href="#" className="hover:text-red-500">
             คอมพิวเตอร์เซต
           </a>
-          <a href="#" className="hover:text-gray-500">
+          <a href="#" className="hover:text-red-500">
             จัดสเปกคอม
           </a>
-          <a href="#" className="hover:text-gray-500">
+          <a href="#" className="hover:text-red-500">
             บทความ
           </a>
-          <Link to="/contact" className="hover:text-gray-500">
+          <Link to="/contact" className={`hover:text-red-500 ${isActive("/contact")}`}>
             ติดต่อเรา
           </Link>
-          <a href="#" className="hover:text-gray-500">
+          <a href="#" className="hover:text-red-500">
             เกี่ยวกับเรา
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-black border-solid"
           onClick={() => setIsOpen(!isOpen)}
         >
           ☰
@@ -46,23 +55,23 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-blue-500 p-2">
-          <Link to="/" className="block py-1 hover:text-gray-500">
+        <div className="md:hidden bg-white p-2">
+          <Link to="/" className={`block py-1 hover:text-red-500 ${isActive("/")}`} onClick={handleLinkClick}>
             หน้าแรก
           </Link>
-          <a href="#" className="block py-1 hover:text-gray-500">
+          <a href="#" className="block py-1 hover:text-red-500">
             คอมพิวเตอร์เซต
           </a>
-          <a href="#" className="block py-1 hover:text-gray-500">
+          <a href="#" className="block py-1 hover:text-red-500">
             จัดสเปกคอม
           </a>
-          <a href="#" className="block py-1 hover:text-gray-500">
+          <a href="#" className="block py-1 hover:text-red-500">
             บทความ
           </a>
-          <Link to="/contact" className="block py-1 hover:text-gray-500">
+          <Link to="/contact" className={`block py-1 hover:text-red-500 ${isActive("/contact")}`} onClick={handleLinkClick}>
             ติดต่อเรา
           </Link>
-          <a href="#" className="block py-1 hover:text-gray-500">
+          <a href="#" className="block py-1 hover:text-red-500">
             เกี่ยวกับเรา
           </a>
         </div>
