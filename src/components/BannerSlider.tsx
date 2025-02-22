@@ -48,19 +48,18 @@ const BannerSlider = () => {
     return (
         <div className="w-full max-w-7xl mx-auto">
             <div className="block p-2 bg-white border border-gray-200 rounded-lg shadow-sm">
-
-            <Slider {...settings}>
-                {images.map((src, index) => (
-                    <div key={index} className="relative w-full h-[400px]">
-                        <img
-                            src={src}
-                            alt={`banner-${index}`}
-                            className="w-full h-full object-cover rounded-lg"
-                            loading="lazy"
-                            />
-                    </div>
-                ))}
-            </Slider>
+                <Slider {...settings}>
+                    {images.map((src, index) => (
+                        <div key={index} className="relative w-full h-[400px]">
+                            <img
+                                src={src}
+                                alt={`banner-${index}`}
+                                className="w-full h-full object-cover rounded-lg"
+                                loading="lazy"
+                                />
+                        </div>
+                    ))}
+                </Slider>
             </div>
         </div>
     );

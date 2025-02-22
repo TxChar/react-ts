@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="bg-white text-black fixed top-0 left-0 w-full z-50 shadow-md h-16">
       <div className="container mx-auto max-w-screen-xl flex justify-between items-center p-4">
         <Link to="/" className="text-2xl font-bold">
-          Charnom-Shop
+        IHave-Charnom
         </Link>
 
         {/* Desktop Menu */}
