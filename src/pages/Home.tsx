@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import {Banner} from '../components/Banner';
 import BannerSlider from '../components/BannerSlider';
-// import PartnerSlider from '../components/PartnerSlider';
+import LogoSlider from '../components/LogoSlider';
 
 const Home = () => {
     return (
@@ -12,7 +12,7 @@ const Home = () => {
           <Banner />
           <Banner />
         </div>
-        {/* <PartnerSlider /> */}
+        <LogoSlider />
         <div>
         </div>
         <div className="text-center">
