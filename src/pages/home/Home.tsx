@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
-import {Banner} from '../components/Banner';
-import BannerSlider from '../components/BannerSlider';
-import LogoSlider from '../components/LogoSlider';
+import {Banner} from '../../components/Banner';
+import BannerSlider from '../../components/BannerSlider';
+import LogoSlider from '../../components/LogoSlider';
 
 const Home = () => {
     return (
